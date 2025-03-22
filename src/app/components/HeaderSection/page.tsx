@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function HeaderSection() {
  return (
-  <header className="flex bg-backgroundColor-linear w-full items-center justify-evenly">
+  <header style={{ background: 'linear-gradient(45deg, rgb(46, 229, 242) 50%, rgb(64, 94, 245) 100%)' }} className="flex w-full items-center justify-evenly">
    <Box className="flex justify-center w-full items-center gap-2">
     <Link href={'/'}>
      <Image
