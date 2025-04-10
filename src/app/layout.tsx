@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Poppins } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: '400'
+});
 
 export const metadata: Metadata = {
   title: 'Product Mindset',
@@ -22,7 +25,7 @@ export default function RootLayout({
       <head>
         <link rel='icon' href="/product_mindset_logo.png"/>
       </head>
-      <body className={inter.className}>
+      <body className={poppins.className}>
         {children}
       </body>
     </html>
