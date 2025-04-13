@@ -1,23 +1,57 @@
-import { Box, Button, Menu, Typography } from "@mui/material"
-import Image from "next/image"
-import MenuItem from "./MenuItem"
+'use client';
+import { useState } from "react";
+import MenuItem from "./MenuItem";
+
+import ContentSection from "../ContentSection/home";
 
 const itemMenu = [
  {
-  url: "/",
-  title: "About"
+  url: "/about",
+  title: "Sobre nós"
  },
  {
-  url: "/",
-  title: "Books"
+  url: "/books",
+  title: "Livros"
  },
  {
-  url: "/",
-  title: "Contact"
+  url: "/contact",
+  title: "Contatos"
  }
 ]
 
 export default function NavBarSection() {
+
+ const [showHome, setShowHome] = useState(true);
+ const [showAbout, setShowAbout] = useState(false);
+ const [showBooks, setShowBooks] = useState(false);
+ const [showContact, setShowContact] = useState(false);
+
+ const handleHome = () =>{
+  setShowHome(true);
+  setShowAbout(false);
+  setShowBooks(false);
+  setShowContact(false);
+ }
+
+ const handleAbout = () =>{
+  setShowHome(false);
+  setShowAbout(true);
+  setShowBooks(false);
+  setShowContact(false);
+ }
+
+ const handlebooks = () =>{
+  setShowHome(false);
+  setShowAbout(false);
+  setShowBooks(true);
+  setShowContact(false);
+ }
+ const handleContact = () =>{
+  setShowHome(false);
+  setShowAbout(false);
+  setShowBooks(false);
+  setShowContact(true);
+ }
  return (
   <section className="flex flex-col w-screen h-full">
    <nav className="flex items-center justify-center w-full">
@@ -25,20 +59,6 @@ export default function NavBarSection() {
      <MenuItem key={index} url={url} title={title} />
     ))}
    </nav>
-   <main className="w-screen h-full">
-    <Box className="flex items-center justify-center w-full h-screen">
-     <div className="flex flex-col justify-center gap-5 h-full">
-      <Box>
-       <p className="text-4xl font-light">ÚLTIMO LANÇAMENTO!</p>
-      </Box>
-      <p className="text-2xl uppercase">Bem-vindo ao Product Mindset INSTITUTO!</p>
-      <p className="text-xl border-l-8 border-l-sky-800 pl-5">Abra sua mente para o mundo da tecnologia! <br /> Nova forma de enxergar o desenvolvimento de produtos.</p>
-     </div>
-     <Box>
-      <Image src="/imagen_home.png" alt="product mindset logo" width={500} height={500} />
-     </Box>
-    </Box>
-   </main>
   </section>
  )
 } 
