@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function ContentSection() {
  return (
-  <section className="flex flex-col items-center gap-10 justify-between h-screen w-screen">
+  <section className="flex my-5 flex-col items-center gap-10 justify-between h-full w-full">
    <Box className="flex flex-col items-center gap-5 justify-center">
     <Image className='pt-4' src="/product_mindset_logo 1 (Traced).png" alt="product mindset logo" width={400} height={500} />
     <Box className="flex flex-col items-center justify-center">

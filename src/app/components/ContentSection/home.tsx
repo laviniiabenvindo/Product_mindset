@@ -4,7 +4,7 @@ import ArrowBack from "@mui/icons-material/ArrowBack";
 import ArrowForward from "@mui/icons-material/ArrowForward";
 import Image from "next/image";
 import { useState } from 'react';
-import Link from "next/link";
+
 
 const images = [
  "/book1.jpg",
@@ -23,8 +23,8 @@ export default function ContentSection() {
   setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
  };
  return (
-  <main className="flex flex-col items-center gap-8 justify-between w-full h-screen">
-   <Box className="flex items-center justify-center">
+  <main className="flex flex-col items-center gap-8 justify-between pb-5">
+   <Box className="flex items-center w-full justify-center">
     <div className="flex flex-col justify-center gap-5 h-full">
      <Box>
       <p className="text-4xl font-light">ÚLTIMO LANÇAMENTO!</p>
@@ -54,7 +54,6 @@ export default function ContentSection() {
      <p className="w-2/5 text-base">
       Este eBook apresenta uma abordagem prática e direta sobre requisitos de software. Um guia essencial para quem deseja desenvolver software realmente alinhado às necessidades do cliente.
      </p>
-     <Button variant="contained" color="secondary"><Link href={"/books"}>Saiba mais</Link></Button>
     </Box>
    </Box>
   </main>

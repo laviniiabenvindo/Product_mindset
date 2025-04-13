@@ -13,14 +13,14 @@ export default function ContentSection() {
  const [index, setIndex] = useState(0);
 
  const handlePrev = () => {
-  setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  setIndex((params) => (params === 0 ? images.length - 1 : params - 1));
  };
 
  const handleNext = () => {
-  setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  setIndex((params) => (params === images.length - 1 ? 0 : params + 1));
  };
  return (
-  <Box className="flex flex-col items-center gap-8 justify-between w-full h-screen">
+  <Box className="flex flex-col items-center gap-8 my-5 justify-between w-full h-screen">
    <p className="text-2xl pt-5">eBooks Publicados</p>
    <div className="flex items-center gap-4">
     <Button onClick={handlePrev}> <ArrowBack /> </Button>
@@ -34,7 +34,7 @@ export default function ContentSection() {
     </div>
     <Button onClick={handleNext}> <ArrowForward /> </Button>
    </div>
-   <p className="text-justify w-1/2">
+   <p className="text-justify w-1/2 text-sm">
     Este eBook apresenta uma abordagem prática e direta sobre requisitos de software, dividido em três módulos. No primeiro módulo, você aprenderá sobre os tipos de requisitos, como gerenciar mudanças, evitar o aumento de escopo e entender a relação entre requisitos e design. O segundo módulo foca em capturar as necessidades do cliente de forma eficaz, utilizando casos de uso e ferramentas visuais como wireframes e storyboards. Já o terceiro módulo mostra como adaptar os requisitos às metodologias ágeis, utilizando histórias de usuários, backlog e mapas de histórias para organizar e priorizar as funcionalidades. Um guia essencial para quem deseja desenvolver software realmente alinhado às necessidades do cliente.
    </p>
    <Button variant="contained" href="https://hotmart.com/pt-br/marketplace/produtos/necessidade-do-cliente-e-requisito-de-software/Y98319589B " color="secondary" target="_blank">Compre agora!</Button>

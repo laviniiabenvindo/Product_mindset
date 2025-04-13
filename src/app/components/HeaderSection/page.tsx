@@ -1,11 +1,11 @@
-import { Box, TextField } from '@mui/material';
+import { Box, Button, FormControl, TextField } from '@mui/material';
 import { Search } from '@mui/icons-material';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function HeaderSection() {
  return (
-  <header style={{ background: 'linear-gradient(45deg, rgb(46, 229, 242) 50%, rgb(64, 94, 245) 100%)' }} className="flex w-full items-center justify-evenly">
+  <header style={{ background: 'linear-gradient(45deg, rgb(46, 229, 242) 50%, rgb(64, 94, 245) 100%)' }} className="flex w-full h-full items-center justify-evenly">
    <Box className="flex justify-center w-full items-center gap-2">
     <Link href={'/'}>
      <Image
@@ -18,7 +18,7 @@ export default function HeaderSection() {
     </Link>
     <p className='font-bold text-2xl text-white uppercase'>Product Mindset</p>
    </Box>
-   <Box className="flex justify-center w-full items-center gap-2">
+   <div className="flex justify-center w-full items-center gap-2">
     <TextField sx={{
      backgroundColor: "white",
      borderRadius: "8px",
@@ -26,8 +26,8 @@ export default function HeaderSection() {
       borderRadius: "8px",
      },
     }} placeholder="Search"></TextField>
-    <Search className='text-white'></Search>
-   </Box>
+    <Button><Search className='text-white'></Search></Button>
+   </div>
   </header>
  );
 }
