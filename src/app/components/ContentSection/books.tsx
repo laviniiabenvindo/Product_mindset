@@ -1,6 +1,6 @@
 'use client';
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
-import { Box, Button, Link } from "@mui/material";
+import { Box, Button, Link, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 import Image from "next/image";
 const images = [
@@ -10,6 +10,12 @@ const images = [
 ];
 
 export default function ContentSection() {
+
+ const theme = useTheme();
+ const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+ const isMediumScreen = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+ const isLargeScreen = useMediaQuery(theme.breakpoints.up('md'));
+
  const [index, setIndex] = useState(0);
 
  const handlePrev = () => {
@@ -20,11 +26,11 @@ export default function ContentSection() {
   setIndex((params) => (params === images.length - 1 ? 0 : params + 1));
  };
  return (
-  <Box className="flex flex-col items-center gap-8 my-5 justify-between w-full h-screen">
+  <Box className="flex flex-col items-center  my-5 justify-between w-full h-screen">
    <p className="text-2xl pt-5">eBooks Publicados</p>
    <div className="flex items-center gap-4">
     <Button onClick={handlePrev}> <ArrowBack /> </Button>
-    <div className="relative w-64 h-64">
+    <div className="relative h-48 w-48">
      <Image
       src={images[index]}
       alt={`Look ${index + 1}`}
@@ -34,8 +40,8 @@ export default function ContentSection() {
     </div>
     <Button onClick={handleNext}> <ArrowForward /> </Button>
    </div>
-   <p className="text-justify w-1/2 text-sm">
-    Este eBook apresenta uma abordagem prática e direta sobre requisitos de software, dividido em três módulos. No primeiro módulo, você aprenderá sobre os tipos de requisitos, como gerenciar mudanças, evitar o aumento de escopo e entender a relação entre requisitos e design. O segundo módulo foca em capturar as necessidades do cliente de forma eficaz, utilizando casos de uso e ferramentas visuais como wireframes e storyboards. Já o terceiro módulo mostra como adaptar os requisitos às metodologias ágeis, utilizando histórias de usuários, backlog e mapas de histórias para organizar e priorizar as funcionalidades. Um guia essencial para quem deseja desenvolver software realmente alinhado às necessidades do cliente.
+   <p className="text-justify w-4/5 text-sm">
+    Este eBook apresenta uma abordagem prática e direta sobre requisitos de software. Um guia essencial para quem deseja desenvolver software realmente alinhado às necessidades do cliente.
    </p>
    <Button variant="contained" href="https://hotmart.com/pt-br/marketplace/produtos/necessidade-do-cliente-e-requisito-de-software/Y98319589B " color="secondary" target="_blank">Compre agora!</Button>
   </Box>
