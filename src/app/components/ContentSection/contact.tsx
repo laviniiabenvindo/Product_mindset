@@ -26,7 +26,7 @@ export default function ContentSection() {
       subject: assunto,
       message: mensagem,
     };
-    if (!nome && !email && !assunto && !mensagem) {
+    if (!nome || !email || !assunto || !mensagem) {
       alert('Preencha todos os campos');
       return;
     } else {
@@ -58,7 +58,7 @@ export default function ContentSection() {
         <Box className="flex flex-col items-center gap-5 justify-center h-screen">
           <p className="text-6xl">Fale conosco</p>
           <FormControl
-            onSubmit={enviarEmail}
+            // onSubmit={enviarEmail}
             className="flex gap-4 mt-3 pl-4"
             component="form"
           >
@@ -66,6 +66,11 @@ export default function ContentSection() {
               <TextField
                 label="Nome"
                 type="text"
+                required
+                inputProps={{
+                  pattern: "[A-Za-z ]{3,}",
+                  maxLength: 10,
+                }}
                 placeholder="Nome"
                 value={nome}
                 onChange={(ev) => setNome(ev.target.value)}
@@ -79,15 +84,20 @@ export default function ContentSection() {
             </Box>
             <TextField
               label="Email"
+              required
               type="email"
               placeholder="Email"
               value={email}
+              inputProps={{
+                maxLength: 30,
+              }}
               onChange={(ev) => setEmail(ev.target.value)}
             />
             <TextField
               label="Assunto"
               type="text"
               placeholder="Assunto"
+              required
               value={assunto}
               onChange={(ev) => setAssunto(ev.target.value)}
             />
@@ -102,6 +112,7 @@ export default function ContentSection() {
               type="text"
               value={mensagem}
               label="Mensagem"
+              required
               placeholder="Escreva a mensagem"
               onChange={(ev) => setMensagem(ev.target.value)}
             />
