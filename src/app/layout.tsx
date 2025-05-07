@@ -13,12 +13,10 @@ export const metadata: Metadata = {
 
 interface LayoutProps {
   children: React.ReactNode;
-  types: string;
 }
 
 export default function RootLayout({
   children,
-  types,
 }: LayoutProps) {
   return (
     <html lang="pt-BR">
