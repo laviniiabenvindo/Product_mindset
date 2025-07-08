@@ -58,7 +58,7 @@ export default function ContentSection() {
         <Box className="flex flex-col items-center gap-5 justify-center h-screen">
           <p className="text-6xl">Fale conosco</p>
           <FormControl
-            // onSubmit={enviarEmail}
+            onSubmit={enviarEmail}
             className="flex gap-4 mt-3 pl-4"
             component="form"
           >

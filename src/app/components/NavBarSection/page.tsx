@@ -43,11 +43,11 @@ export default function NavBarSection() {
     <div>
       {isLargeScreen && (
         <section className="flex flex-col w-full h-full">
-          <nav className="flex items-center justify-center w-full">
+          {/* <nav className="flex items-center justify-center w-full">
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100px', color: 'white', backgroundColor: 'rgb(46, 229, 242)', ':hover': { backgroundColor: 'rgb(64, 94, 245)', color: 'white', transition: 'linear 0.5s' } }}><button className="text-white" onClick={handleAbout}>Sobre nós</button></Box>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100px', color: 'white', backgroundColor: 'rgb(46, 229, 242)', ':hover': { backgroundColor: 'rgb(64, 94, 245)', color: 'white', transition: 'linear 0.5s' } }}><button className="text-white" onClick={handlebooks}>Livros</button></Box>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100px', color: 'white', backgroundColor: 'rgb(46, 229, 242)', ':hover': { backgroundColor: 'rgb(64, 94, 245)', color: 'white', transition: 'linear 0.5s' } }}><button className="text-white" onClick={handleContact}>Contatos</button></Box>
-          </nav>
+          </nav> */}
           <div>
             {showHome && <ContentSection />}
             {showAbout && <AboutSection />}

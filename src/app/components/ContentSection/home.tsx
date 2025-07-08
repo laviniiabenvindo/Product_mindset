@@ -45,18 +45,15 @@ export default function ContentSection() {
     <div>
       {isLargeScreen && (
         <main className="flex flex-col items-center gap-8 justify-between pb-5">
-          <Box className="flex items-center w-full justify-center">
+          <Box className="flex items-center w-full p-10 justify-center">
             <div className="flex flex-col justify-center gap-5 h-full">
               <p className="text-4xl uppercase">Bem-vindo ao Product Mindset INSTITUTO!</p>
               <p className="text-xl border-l-8 border-l-sky-800 pl-5">Abra sua mente para o mundo da tecnologia! <br /> Nova forma de enxergar o desenvolvimento de produtos.</p>
             </div>
-            <Box>
-              <Image src="/imagen_home.png" alt="product mindset logo" width={400} height={500} />
-            </Box>
           </Box>
           <Box className="flex flex-col items-center gap-4">
-            <p className="text-2xl">eBooks/Livros Publicados</p>
-            <div className="flex items-center gap-4">
+            <p className="text-3xl">Exemplares Publicados</p>
+            <div className="flex items-center">
               <Box className="flex flex-col items-center gap-4">
                 <div className="flex items-center gap-4">
                   <Button onClick={handlePrev}> <ArrowBack /> </Button>
@@ -118,7 +115,7 @@ export default function ContentSection() {
             </div>
           </Box>
           <Box className="flex flex-col items-center gap-4">
-            <p>eBooks Publicados</p>
+            <p>Exemplares Publicados</p>
             <Box className="flex flex-col items-center gap-4">
               <div className="flex items-center gap-4">
                 <Button onClick={handlePrev}> <ArrowBack /> </Button>
