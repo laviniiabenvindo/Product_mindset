@@ -8,11 +8,7 @@ import ArrowBack from '@mui/icons-material/ArrowBack';
 import ArrowForward from '@mui/icons-material/ArrowForward';
 import { Box, Button, FormControl, TextField } from '@mui/material';
 
-const images = [
-  '/book1.jpg', 
-  '/book2.jpg', 
-  '/book3.jpg'
-];
+const images = ['/book1.jpg', '/book2.jpg', '/book3.jpg'];
 
 const images2 = [
   '/book-processos-software.jpg',
@@ -79,7 +75,7 @@ export default function Home() {
   };
   return (
     <div>
-      <nav className="flex bg-blue-900 fixed top-0 border-2 border-white w-full z-50 items-center justify-evenly">
+      <nav className="flex bg-blue-900 fixed top-0  w-full z-50 items-center justify-evenly">
         <Box className="flex justify-center w-full items-center gap-2">
           <Link href={'/'}>
             <Image
@@ -96,9 +92,9 @@ export default function Home() {
         </Box>
         <div className="flex justify-center w-full items-center gap-2">
           <ul className="flex gap-10 text-white">
-            <li className="cursor-pointer">Sobre</li>
-            <li className="cursor-pointer">Livros</li>
-            <li className="cursor-pointer">Contato</li>
+            <li className="cursor-pointer"><Link href={'#/about'}>Sobre</Link></li>
+            <li className="cursor-pointer"><Link href={'#/books'}>Livros</Link></li>
+            <li className="cursor-pointer"><Link href={'#/contact'}>Contato</Link></li>
           </ul>
         </div>
       </nav>
@@ -108,22 +104,22 @@ export default function Home() {
           <p>para a tecnologia</p>
         </div>
         <div className="flex flex-col items-center gap-2 text-white font-light">
-          <p>Nova forma de encarar o desenvolvimento produtos</p>
-          <Button variant="contained">Saiba mais</Button>
+          <p>Nova forma de encarar o desenvolvimento de produtos</p>
+          <Button variant="contained">
+            <Link href={'/about'}>Saiba mais</Link>
+          </Button>
         </div>
       </header>
       <main className="flex flex-col items-center gap-8 justify-between pb-5">
-        <Box className="flex items-center w-full justify-center">
-          <div className="flex flex-col justify-center gap-5 h-full">
-            <p className="text-4xl uppercase">
-              Bem-vindo ao Product Mindset INSTITUTO!
-            </p>
-            <p className="text-xl border-l-8 border-l-sky-800 pl-5">
-              Abra sua mente para o mundo da tecnologia! <br /> Nova forma de
-              enxergar o desenvolvimento de produtos.
-            </p>
-          </div>
-        </Box>
+        <div className="flex items-center p-10 w-full flex-col justify-center gap-5 h-full">
+          <p className="text-4xl uppercase">
+            Bem-vindo ao Product Mindset INSTITUTO!
+          </p>
+          <p className="text-xl border-l-8 border-l-sky-800 pl-5">
+            Abra sua mente para o mundo da tecnologia! <br /> Nova forma de
+            enxergar o desenvolvimento de produtos.
+          </p>
+        </div>
         <Box className="flex flex-col items-center gap-4">
           <p className="text-3xl">Exemplares Publicados</p>
           <div className="flex items-center">
@@ -195,7 +191,7 @@ export default function Home() {
                 <Button
                   className="w-full"
                   variant="contained"
-                  href="https://go.hotmart.com/I99540919G?dp=1"
+                  href="https://go.hotmart.com/P100542343K?dp=1"
                   color="primary"
                   target="_blank"
                 >
@@ -204,12 +200,15 @@ export default function Home() {
               </div>
             </Box>
           </div>
+          <Button variant="contained">
+            <Link href={'/book'}>Ver todos</Link>
+          </Button>
         </Box>
       </main>
-      <section>
+      <section className='flex p-10'>
         <section className="flex flex-col items-center gap-10 justify-between h-full w-full">
           <p className="text-3xl">Sobre o instituto</p>
-          <Box className="flex flex-col items-center gap-5 justify-center">
+          <Box className="flex flex-col items-center gap-10 justify-center">
             <Box className="flex flex-col items-center justify-center">
               <p className="text-justify w-1/2">
                 O <strong>Product Mindset Instituto</strong> nasce com a missão
@@ -223,13 +222,13 @@ export default function Home() {
               </p>
             </Box>
             <Button variant="contained">
-              <Link href={'/About'}>Conhecer o instituto</Link>
+              <Link href={'/about'}>Conhecer o instituto</Link>
             </Button>
           </Box>
         </section>
       </section>
       <article>
-        <Box className="flex flex-col items-center gap-5 justify-center h-screen">
+        <Box className="flex flex-col items-center gap-5 justify-center w-full h-screen">
           <p className="text-6xl">Fale conosco</p>
           <FormControl
             onSubmit={enviarEmail}
@@ -302,13 +301,7 @@ export default function Home() {
           </FormControl>
         </Box>
       </article>
-      <footer
-        style={{
-          background:
-            'linear-gradient(45deg, rgb(46, 229, 242) 50%, rgb(64, 94, 245) 100%)',
-        }}
-        className="flex w-full items-center justify-evenly h-full"
-      >
+      <footer className="flex bg-blue-900 w-full items-center justify-evenly h-full">
         <Image
           src="/product_mindset_logo.png"
           alt="product mindset logo"
@@ -340,8 +333,7 @@ export default function Home() {
               target="_blank"
               href={'https://www.instagram.com/_productmindset'}
             >
-              {' '}
-              <Instagram />{' '}
+              <Instagram />
             </Link>
           </div>
         </span>
