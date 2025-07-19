@@ -7,13 +7,20 @@ import { Instagram } from '@mui/icons-material';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import ArrowForward from '@mui/icons-material/ArrowForward';
 import { Box, Button, FormControl, TextField } from '@mui/material';
+import { useMediaQuery, useTheme } from '@mui/material';
+import Books from "./Books/page";
+// const theme = useTheme();
+// const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+// const isMediumScreen = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+// const isLargeScreen = useMediaQuery(theme.breakpoints.up('md'));
 
 const images = ['/book1.jpg', '/book2.jpg', '/book3.jpg'];
 
-const images2 = [
+const imagesL = [
   '/book-processos-software.jpg',
   '/book-processos-software2.jpg',
 ];
+
 export default function Home() {
   const [index, setIndex] = useState(0);
   const [index2, setIndex2] = useState(0);
@@ -22,6 +29,7 @@ export default function Home() {
   const [email, setEmail] = useState('');
   const [assunto, setAssunto] = useState('');
   const [mensagem, setMensagem] = useState('');
+
 
   const enviarEmail = (e: any) => {
     e.preventDefault();
@@ -66,35 +74,44 @@ export default function Home() {
   const handleNext = () => {
     setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
-  const handlePrev2 = () => {
-    setIndex2((params) => (params === 0 ? images2.length - 1 : params - 1));
+
+  const handlePrevL = () => {
+    setIndex2((params) => (params === 0 ? imagesL.length - 1 : params - 1));
   };
 
-  const handleNext2 = () => {
-    setIndex2((params) => (params === images2.length - 1 ? 0 : params + 1));
+  const handleNextL = () => {
+    setIndex2((params) => (params === imagesL.length - 1 ? 0 : params + 1));
   };
+
   return (
     <div>
-      <nav className="flex bg-blue-900 fixed top-0  w-full z-50 items-center justify-evenly">
-        <Box className="flex justify-center w-full items-center gap-2">
-          <Link href={'/'}>
-            <Image
-              src="/product_mindset_logo.png"
-              alt="product mindset logo"
-              className="cursor-pointer pt-2"
-              width={150}
-              height={150}
-            />
-          </Link>
+      <nav className="flex bg-blue-900 fixed scroll-mt-0 w-full z-50 items-center justify-evenly">
+        <Link
+          className="cursor-pointer flex justify-center items-center w-full gap-2"
+          href={'/'}
+        >
+          <Image
+            src="/product_mindset_logo.png"
+            alt="product mindset logo"
+            className="pt-2"
+            width={150}
+            height={150}
+          />
           <p className="font-bold text-2xl text-white uppercase">
             Product Mindset
           </p>
-        </Box>
+        </Link>
         <div className="flex justify-center w-full items-center gap-2">
           <ul className="flex gap-10 text-white">
-            <li className="cursor-pointer"><Link href={'#/about'}>Sobre</Link></li>
-            <li className="cursor-pointer"><Link href={'#/books'}>Livros</Link></li>
-            <li className="cursor-pointer"><Link href={'#/contact'}>Contato</Link></li>
+            <li className="cursor-pointer">
+              <Link href={'#/about'}>Sobre</Link>
+            </li>
+            <li className="cursor-pointer">
+              <Link href={'#/books'}>Livros</Link>
+            </li>
+            <li className="cursor-pointer">
+              <Link href={'#/contact'}>Contato</Link>
+            </li>
           </ul>
         </div>
       </nav>
@@ -106,7 +123,7 @@ export default function Home() {
         <div className="flex flex-col items-center gap-2 text-white font-light">
           <p>Nova forma de encarar o desenvolvimento de produtos</p>
           <Button variant="contained">
-            <Link href={'/about'}>Saiba mais</Link>
+            <Link href={'/About'}>Saiba mais</Link>
           </Button>
         </div>
       </header>
@@ -115,7 +132,7 @@ export default function Home() {
           <p className="text-4xl uppercase">
             Bem-vindo ao Product Mindset INSTITUTO!
           </p>
-          <p className="text-xl border-l-8 border-l-sky-800 pl-5">
+          <p id="/books" className="text-xl border-l-8 border-l-sky-800 pl-5">
             Abra sua mente para o mundo da tecnologia! <br /> Nova forma de
             enxergar o desenvolvimento de produtos.
           </p>
@@ -157,18 +174,18 @@ export default function Home() {
             </Box>
             <Box className="flex flex-col items-center  gap-5 justify-between h-full w-1/2">
               <div className="flex items-center gap-4">
-                <Button onClick={handlePrev2}>
+                <Button onClick={handlePrevL}>
                   <ArrowBack />
                 </Button>
                 <div className="relative h-64 w-64">
                   <Image
-                    src={images2[index2]}
+                    src={imagesL[index2]}
                     alt={`Look ${index + 1}`}
                     fill
                     className="object-cover rounded-lg"
                   />
                 </div>
-                <Button onClick={handleNext2}>
+                <Button onClick={handleNextL}>
                   <ArrowForward />
                 </Button>
               </div>
@@ -194,6 +211,7 @@ export default function Home() {
                   href="https://go.hotmart.com/P100542343K?dp=1"
                   color="primary"
                   target="_blank"
+                   id="/about"
                 >
                   Livro Físico!
                 </Button>
@@ -201,12 +219,14 @@ export default function Home() {
             </Box>
           </div>
           <Button variant="contained">
-            <Link href={'/book'}>Ver todos</Link>
+            <Link href={'/Books'}>Ir para a Página de Livros</Link>
           </Button>
         </Box>
       </main>
-      <section className='flex p-10'>
-        <section className="flex flex-col items-center gap-10 justify-between h-full w-full">
+      <section className="flex p-10">
+        <section
+          className="flex flex-col items-center gap-10 justify-between h-full w-full"
+        >
           <p className="text-3xl">Sobre o instituto</p>
           <Box className="flex flex-col items-center gap-10 justify-center">
             <Box className="flex flex-col items-center justify-center">
@@ -221,14 +241,19 @@ export default function Home() {
                 valor.
               </p>
             </Box>
-            <Button variant="contained">
-              <Link href={'/about'}>Conhecer o instituto</Link>
+            <Button  id="/contact" variant="contained">
+               <Link href={'/About'}>
+                Conhecer o instituto
+              </Link>
             </Button>
           </Box>
         </section>
       </section>
       <article>
-        <Box className="flex flex-col items-center gap-5 justify-center w-full h-screen">
+        <Box
+         
+          className="flex flex-col items-center gap-5 justify-center w-full h-screen"
+        >
           <p className="text-6xl">Fale conosco</p>
           <FormControl
             onSubmit={enviarEmail}
