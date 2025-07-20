@@ -11,9 +11,9 @@ export default function ContentSection() {
 
   return (
     <div>
-      {isLargeScreen && (
-        <section className="flex mb-5 flex-col items-center gap-10 justify-between h-full w-full">
-          <Box className="flex flex-col items-center justify-center bg-blue-900 gap-5 w-full h-[500px]">
+        <Box>
+        {isLargeScreen && (
+          <header className="flex flex-col items-center justify-center bg-blue-900 gap-5 w-full h-[500px]">
             <div className="flex flex-col items-center text-white uppercase text-4xl w-full font-bold">
               <p>abra sua mente</p>
               <p>para a tecnologia</p>
@@ -24,7 +24,25 @@ export default function ContentSection() {
                 <Link href={'/'}>Voltar</Link>
               </Button>
             </div>
-          </Box>
+          </header>
+        )}
+        {(isMediumScreen || isSmallScreen) && (
+          <header className="flex flex-col items-center justify-center bg-blue-900 gap-2 w-full h-[400px]">
+            <div className="flex flex-col items-center text-white uppercase text-xl w-full font-bold">
+              <p>abra sua mente</p>
+              <p>para a tecnologia</p>
+            </div>
+            <div className="flex flex-col items-center gap-5 text-white w-[280px] text-center  text-sm font-light">
+              <p>Nova forma de encarar o desenvolvimento de produtos</p>
+              <Button variant="contained">
+                <Link href={'/'}>Voltar</Link>
+              </Button>
+            </div>
+          </header>
+        )}
+      </Box>
+      {isLargeScreen && (
+        <section className="flex mb-5 flex-col items-center gap-10 justify-between h-full w-full">
           <Box className="flex flex-col items-center gap-5 justify-center">
             <Image
               className="pt-4"
