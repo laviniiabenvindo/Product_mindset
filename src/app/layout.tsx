@@ -11,15 +11,11 @@ export const metadata: Metadata = {
   title: 'Product Mindset',
 };
 
-interface LayoutProps {
-  children: React.ReactNode;
-  types: string;
-}
-
 export default function RootLayout({
   children,
-  types,
-}: LayoutProps) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="pt-BR">
       <head>
